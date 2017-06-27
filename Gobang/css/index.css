@@ -1,0 +1,70 @@
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#game {
+	position: relative;
+	width: 560px;
+	height: 560px;
+	display: block;
+	background-color: #ddd;
+	box-sizing: border-box;
+}
+#game > .chessboard > .lattice {
+	border-right: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+	display: inline-flex;
+	box-sizing: border-box;
+}
+#game > .chessboard.lattice-12 > .lattice { width: calc(100% / 12); height: calc(100% / 12); }
+#game > .chessboard.lattice-13 > .lattice { width: calc(100% / 13); height: calc(100% / 13); }
+#game > .chessboard.lattice-14 > .lattice { width: calc(100% / 14); height: calc(100% / 14); }
+#game > .chessboard.lattice-15 > .lattice { width: calc(100% / 15); height: calc(100% / 15); }
+#game > .chessboard.lattice-16 > .lattice { width: calc(100% / 16); height: calc(100% / 16); }
+#game > .chessboard.lattice-17 > .lattice { width: calc(100% / 17); height: calc(100% / 17); }
+#game > .chessboard.lattice-18 > .lattice { width: calc(100% / 18); height: calc(100% / 18); }
+#game > .chessboard.lattice-19 > .lattice { width: calc(100% / 19); height: calc(100% / 19); }
+#game > .chessboard.lattice-20 > .lattice { width: calc(100% / 20); height: calc(100% / 20); }
+#game > .chessboard {
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+	border-top: 1px solid #aaa;
+	border-left: 1px solid #aaa;
+	z-index: 1;
+}
+#game > .chessmans {
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+}
+#game > .chessmans > .chessman {
+	position: absolute;
+	display: inline-flex;
+	border-radius: 100%;
+}
+#game > .chessmans > .chessman.black {
+	background-color: black;
+}
+#game > .chessmans > .chessman.white {
+	background-color: white;
+}
+.tools {
+	display: flex;
+	justify-content: center;
+}
+.tools > button {
+	margin: 0 1rem;
+	border: none;
+	background-color: #eee;
+	padding: .5rem 1rem;
+	font-size: 1rem;
+	cursor: pointer;
+}
+.tools > button:hover {
+	background-color: #aaa;
+}

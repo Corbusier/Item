@@ -1,0 +1,33 @@
+<html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Gobang</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<div class="app">
+		<div id="game">
+			<div id="chessboard" class="chessboard"></div>
+			<div id="chessmans" class="chessmans"></div>
+		</div>
+		<br>	
+		<div class="tools">
+			<button onclick="gobangGame.resetInit()">开始/重置</button>
+			<button onclick="gobangGame.regretChess()">悔棋</button>
+			<button onclick="gobangGame.revokedRegretChess()">撤销悔棋</button>
+		</div>
+	</div>
+</body>
+<script src="js/index.js"></script>
+<script>
+	const gobangGame = new Gobang({
+		role: 2,
+		canvas: 'game',
+		gobangStyle: {
+			padding: 30,
+			count: 16
+		}
+	});
+</script>		
+</html>
