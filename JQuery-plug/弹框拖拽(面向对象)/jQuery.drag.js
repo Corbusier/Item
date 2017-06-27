@@ -17,7 +17,7 @@
 		} else {
 			this.element = this.defaults.targetEle;
 		}
-		//this.init();
+		this.init();
 	};
 	Drag.prototype = {
 		constructor: Drag,
