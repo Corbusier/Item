@@ -57,7 +57,7 @@ class Gobang{
 		落子后更新矩阵，切换角色，并记录
 		落子完毕后，有可能是悔棋之后落子的，这种情况下就该重置历史记录
 	*/
-	listenDownChessman(isBlack = false){
+	listenDownChessman(){
 		this.chessmans.onclick = event => {
 			if(event.target.className.includes('chessman ')){
 				return false;
@@ -66,8 +66,8 @@ class Gobang{
 			x = Math.round(x / this.lattice.width);
 			y = Math.round(y / this.lattice.height);
 			const effectiveBoard = !!this.checkerboard[x];
-			if(effectiveBoard && this.checkerboard[x][y] !== undefined
-							  && this.checkerboard[x][y] === 0){
+			if(this.checkerboard[x][y] !== undefined
+			  	&& this.checkerboard[x][y] === 0){
 				this.checkerboard[x][y] = this.role;
 				this.drawChessman(x, y, Object.is(this.role,1));
 				this.history.length = this.currentStep;
@@ -101,11 +101,13 @@ class Gobang{
 		const S1Continuous  = [];
 		const S2Continuous  = [];
 		this.checkerboard.forEach((value,index) => {
-			const S1Item = value [y - (x - index)];
+			//左斜线
+			const S1Item = value[y - (x - index)];
 			if(S1Item !== undefined){
 				S1Continuous.push(S1Item);
 			}
-			const S2Item = value[y + (x -index)];
+			//右斜线
+			const S2Item = value[y + (x - index)];
 			if(S2Item !== undefined){
 				S2Continuous.push(S2Item);
 			}
@@ -121,6 +123,7 @@ class Gobang{
 				}
 			}
 		);
+
 		//if win,解绑事件
 		if(countContinuous){
 			this.chessmans.onclick = null;
@@ -146,7 +149,6 @@ class Gobang{
 	//撤销悔棋
 	revokedRegretChess() {
 		const next = this.history[this.currentStep];
-		console.log(this.history);
 		if (next) {
 			this.drawChessman(next.x, next.y, next.role === 1);
 			this.checkerboard[next.x][next.y] = next.role;
