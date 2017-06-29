@@ -77,6 +77,33 @@
         .image-leave {
             transform: translateX(0);
         }
+        a{
+            text-decoration:none; 
+        }
+        .btn-group{
+            position:absolute;
+            top:300px;
+        }
+        .btn-group .btn{
+            display:inline-block;
+            position:absolute;
+            top:0;
+            width:30px;
+            height:30px;
+            border-radius:100%;
+            box-sizing:border-box;
+            padding-left:5px;
+            background-color: #333;
+            color:#fff;
+            opacity:.7;
+            font:30px/26px "微软雅黑";
+        }
+        .btn-group .btn-prev{
+            left:10px;
+        }
+        .btn-group .btn-next{
+            right:-790px;
+        }
 	</style>
 </head>
 <body>
@@ -91,6 +118,10 @@
         <div class="bullet">
             <span v-for="(item,index) in img.length" :class="{
             'active':index===mark}" @click="change(index)"></span>
+        </div>
+        <div class="btn-group">
+            <a href="javascript:;" class="btn btn-prev" @click="prev"><</a>
+            <a href="javascript:;" class="btn btn-next" @click="next">></a>
         </div>
     </div>
 	<script src='https://unpkg.com/vue'></script>
@@ -110,6 +141,20 @@
                 this.play();
             },
             methods:{
+                prev(){
+                    this.mark--;
+                    if(this.mark<0){
+                        this.mark = this.img.length-1;
+                        return;
+                    }
+                },
+                next(){
+                    this.mark++;
+                    if(this.mark>this.img.length-1){
+                        this.mark = 0;
+                        return;
+                    }
+                },
                 play(){
                     var self = this;
                     self.timer = setInterval(function(){
