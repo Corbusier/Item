@@ -20,14 +20,14 @@
 ```js
     <button type=""id="btn">Click Me!</button>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script src="jQuery.dialog.js"></script>
-	<script>
-		$("#btn").bind("click",function(){
-			$.dialog({
-                //可自定义参数
-			})
-		})
-	</script>
+    <script src="jQuery.dialog.js"></script>
+    <script>
+	$("#btn").bind("click",function(){
+	    $.dialog({
+             //可自定义参数
+	    })
+	})
+    </script>
 ```
 
 ## jQuery.carousel VS Vue.carousel
